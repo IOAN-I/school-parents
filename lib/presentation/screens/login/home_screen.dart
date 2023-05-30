@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schoo_parents/presentation/widgets/shared/custom_alert_dialog.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -37,10 +38,10 @@ class _HomeBody extends StatelessWidget {
         child: Card(
           margin: EdgeInsets.zero,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 18),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -87,13 +88,10 @@ class _StudentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5.0),
-      ),
+    return const Card(
       color: Colors.grey,
-      child: const Padding(
-        padding: EdgeInsets.all(12.0),
+      child: Padding(
+        padding: EdgeInsets.all(15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -131,7 +129,13 @@ class _HomeHeader extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => const CustomAlertDialog(),
+                    barrierDismissible: true,
+                  );
+              },
               icon: const Icon(Icons.logout_outlined),
               color: colors.inversePrimary,
               )),
