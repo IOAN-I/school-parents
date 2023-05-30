@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schoo_parents/presentation/widgets/shared/custom_alert_dialog.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -12,7 +13,7 @@ class LoginScreen extends StatelessWidget {
         body: Column(
           children: [
             _HomeHeader(colors: colors),
-            const _HomeBody(),
+            _HomeBody(colors: colors),
             ]),
         floatingActionButton: FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
       ),
@@ -23,25 +24,37 @@ class LoginScreen extends StatelessWidget {
 class _HomeBody extends StatelessWidget {
   const _HomeBody({
     super.key,
+    required this.colors,
   });
+
+  final ColorScheme colors;
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return Expanded(
       flex: 2,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Estudiantes registrados',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
-              ),
-              Expanded(
-                child: _StudentList(),
-              )
-          ],
+      child: Container(
+        color: colors.primary,
+        child: Card(
+          margin: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Estudiantes registrados',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
+                  ),
+                  Expanded(
+                    child: _StudentList(),
+                  )
+              ],
+            ),
+          ),
         ),
       )
       );
@@ -61,7 +74,7 @@ class _StudentList extends StatelessWidget {
       itemCount: 10,
       itemBuilder: (context, index) {
       return const Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.symmetric(vertical: 8.0),
         child: _StudentCard(),
       );
     },);
@@ -75,13 +88,10 @@ class _StudentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5.0),
-      ),
+    return const Card(
       color: Colors.grey,
-      child: const Padding(
-        padding: EdgeInsets.all(12.0),
+      child: Padding(
+        padding: EdgeInsets.all(15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -119,7 +129,13 @@ class _HomeHeader extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => const CustomAlertDialog(),
+                    barrierDismissible: true,
+                  );
+              },
               icon: const Icon(Icons.logout_outlined),
               color: colors.inversePrimary,
               )),
