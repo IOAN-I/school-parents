@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schoo_parents/presentation/widgets/home/add_student_alert_dialog.dart';
 import 'package:schoo_parents/presentation/widgets/shared/custom_alert_dialog.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -15,7 +16,15 @@ class LoginScreen extends StatelessWidget {
             _HomeHeader(colors: colors),
             _HomeBody(colors: colors),
             ]),
-        floatingActionButton: FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => const AddStudentAlertDialog(),
+            );
+          },
+          child: const Icon(Icons.add)
+        ),
       ),
     );
   }

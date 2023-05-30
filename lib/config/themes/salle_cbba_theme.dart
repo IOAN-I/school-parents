@@ -7,7 +7,9 @@ class SalleCbbaTheme {
   static ThemeData theme() {
     return ThemeData(
       useMaterial3: true,
-      colorScheme: const ColorScheme.light(primary: _customColor)
+      colorScheme: const ColorScheme.light(
+        primary: _customColor,
+        secondary: Colors.white)
     );
   }
 }
