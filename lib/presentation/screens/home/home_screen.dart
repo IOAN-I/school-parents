@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:schoo_parents/presentation/widgets/home/add_student_alert_dialog.dart';
 import 'package:schoo_parents/presentation/widgets/shared/custom_alert_dialog.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
