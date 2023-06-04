@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BehaviorsScreen extends StatelessWidget {
-  const BehaviorsScreen({super.key});
+class AttendancesScreen extends StatelessWidget {
+  const AttendancesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class BehaviorsScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: 10,
               itemBuilder: (context, index) {
-                return const _BehaviorCard();
+                return const _AttendanceCard();
               },
               ),
           )
@@ -32,57 +32,66 @@ class BehaviorsScreen extends StatelessWidget {
   }
 }
 
-class _BehaviorCard extends StatelessWidget {
-  const _BehaviorCard({
+class _AttendanceCard extends StatelessWidget {
+  const _AttendanceCard({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    final colors = Theme.of(context).colorScheme;
+
+    return Card(
       child: Padding(
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
+            const Row(
               children: [
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Trimestre 1',
+                        'Retraso justificado',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 22,
                           fontWeight: FontWeight.w400
                           ),
-                      ),
-                      Text(
-                        'Evaluacion 1 Parcial',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w300
-                        ),
                       ),
                     ],
                   ),
                 ),
-                CircleAvatar(
-                  radius: 30,
-                  child: Text(
-                    '95',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w900
-                    ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Column(
+                    children: [
+                      Text('28 may 2023'),
+                      Text(
+                        '06:35 pm',
+                        style: TextStyle(
+                          fontSize: 22
+                        ),
+                      )
+                    ],
                   ),
                 )
               ],
             ),
-            SizedBox(height: 8,),
-            Text(
-              'Prof. Profesor Titular de Curso 02 may 2023 Participa en las actividades Organizadas por el colegio',
+            const SizedBox(height: 8,),
+            const Text(
+              'Prueba asistencia.',
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Text(
+                  'colegio.lasalle',
+                  style: TextStyle(
+                    color: colors.primary,
+                    fontStyle: FontStyle.italic
+                  ),
+                )
             )
           ],
         ),
