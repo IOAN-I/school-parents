@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:schoo_parents/presentation/screens/behaviors/behaviors_screen.dart';
 import 'package:schoo_parents/presentation/screens/subects/subjects_screen.dart';
 import 'package:schoo_parents/presentation/widgets/shared/nav_drawer.dart';
 
@@ -20,7 +21,8 @@ class StudentHomeScreen extends StatelessWidget {
         ],
       ),
       drawer: const NavDrawer(),
-      body: const SubjectsScreen(),
+      // body: const SubjectsScreen(),
+      body: const BehaviorsScreen(),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
